@@ -1,0 +1,12 @@
+from xml.dom import minidom
+xmldoc = minidom.parse('/cygdrive/c/Users/Frank/Downloads/top100.xml')
+podlist = xmldoc.getElementsByTagName('id')
+
+x=0
+for item in podlist:
+  podlist[x] = item.toxml()
+  x = x+1
+
+f = open("iTunesList.txt", "w")
+for item in podlist:
+  print>>f, item
